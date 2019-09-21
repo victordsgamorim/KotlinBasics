@@ -16,6 +16,7 @@ fun main() {
     println(creatingStatement09())
     println(creatingStatement10("Hello World", 5))
     println(creatingStatement11(2))
+    println(choseVariableType('a'))
 }
 
 fun creatingStatement01(): String {
@@ -102,6 +103,14 @@ fun creatingStatement10(x: String, y: Int): Int {
 
 fun creatingStatement11(x: Any): String {
     return if (x !is String) return "Not a String" else "String"
+}
+
+fun choseVariableType(x: Any) = when (x) {
+    is String -> "String"
+    is Int -> "Integer"
+    is Double -> "Double"
+    is Float -> "Float"
+    else -> "None of the options above."
 }
 
 

@@ -1,14 +1,21 @@
-fun main() {
+import java.util.ArrayList
+
+fun main(args: Array<String>) {
     println(creatingFirstVariable())
     println("Integer: " + creatingSecondVariable())
     println(concatVariables())
     println(concatMethods())
     println(concatExternalVariable())
     println(concatInternalVariable())
-    println("Double: " + otherVariables())
+    println(otherVariables())
+    println(sumOfVarNVal())
+    println(variableCast(5.8))
+    println(nullableCast(5, 3.2))
+
 }
 
 fun creatingFirstVariable(): String {
+
     val myName: String = "Victor"
     return "String: " + myName
 }
@@ -22,7 +29,7 @@ fun concatVariables(): String {
     val name: String = "Victor"
     val age: Int = 28
 
-    // when set with no '$' is shown an alert of redundant type
+    /* when set with no '$' is shown an alert of redundant type */
     return "ConcatVariable: My name is " + name + " and my age is " + age
 }
 
@@ -57,11 +64,35 @@ fun otherVariables(): String {
     val shortValue: Short = 1121
     val charValue = 'a'
 
-    val concatString = "Double: $doubleValue, Float: $floatValue, " +
+    return "Double: $doubleValue, Float: $floatValue, " +
             "Long: $longValue, Short: $shortValue, Char: $charValue"
 
-    return concatString
 }
+
+fun sumOfVarNVal(): String {
+    val variable2 = 2
+    var variable1 = 1
+
+    return "Sum of Var and Val: ${variable1.plus(variable2)}"
+}
+
+fun variableCast(x: Any): String {
+
+    val x1: Double? = x as? Double
+
+    return x1.toString()
+
+}
+
+fun nullableCast(x: Int?, y: Double?): String {
+
+    // I could also do this way :
+    // x?.plus(y!!)
+    val result: Double? = y?.let { x?.plus(it) }
+
+    return "Result: ${result.toString()}"
+}
+
 
 
 

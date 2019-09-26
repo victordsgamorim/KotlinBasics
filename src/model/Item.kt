@@ -3,8 +3,9 @@ package model
 import java.math.BigDecimal
 
 class Item(
-    var name: String,
-    var price: BigDecimal
+    val name: String,
+    val price: BigDecimal,
+    val type: ItemType = ItemType.ELETRONIC
 ) {
 
 }

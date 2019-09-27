@@ -1,6 +1,7 @@
 package model
 
 import delegate.DelegateMethod
+import java.text.NumberFormat
 
 private var variable: Double? = null
 private val variable2 by lazy { variable }
@@ -23,6 +24,14 @@ fun main() {
     testingHOFInObjects2()
     testingDelegatedInterfaces()
     testingHOFInObjects3()
+
+    testingHOFWithReturnVariables {
+        val age = 29
+        val oneYear = 365
+        val times = age.times(oneYear)
+        times.toDouble()
+
+    }
 }
 
 fun testLazy() {
@@ -63,6 +72,13 @@ fun testingDelegatedInterfaces() {
 
 fun testingHOFInObjects3() {
     val student = Student("Victor", 28)
-    student.testingHOFAgain{ e, i -> "$e and $i" }
+    student.testingHOFAgain { e, i -> "$e and $i" }
+}
+
+fun testingHOFWithReturnVariables(test: () -> Double) {
+
+    val instance = NumberFormat.getInstance()
+    val format = instance.format(test())
+    println("$format was the total days that I have been living.")
 }
 

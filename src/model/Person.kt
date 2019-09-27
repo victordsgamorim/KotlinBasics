@@ -11,6 +11,16 @@ abstract class Person(protected val name: String, private val age: Int) {
 
     fun testOneMoreHighOrderFunction(name: () -> String) {
         val phrase = "${name()} and I am still 28 yo "
-        print(phrase)
+        println(phrase)
+    }
+
+    fun testWithOneMoreHof(name: (value: Double) -> String) {
+        val age: Double by lazy { this.age.toDouble() }
+        println(name(age))
+    }
+
+    fun testingHOFAgain(delegate: (name: String, age: Int) -> String) {
+        val delegated = delegate(name, age)
+        println(delegated)
     }
 }

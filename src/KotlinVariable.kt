@@ -1,5 +1,3 @@
-import java.util.ArrayList
-
 fun main(args: Array<String>) {
     println(creatingFirstVariable())
     println("Integer: " + creatingSecondVariable())

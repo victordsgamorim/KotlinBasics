@@ -1,6 +1,5 @@
-package model
-
 import delegate.DelegateMethod
+import model.Student
 import java.text.NumberFormat
 
 private var variable: Double? = null

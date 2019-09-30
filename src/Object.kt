@@ -7,6 +7,7 @@ val test2 = Test("Victor")
 fun main() {
     hashCodeAndEquals()
     primeraFuncao()
+    quartaFuncao()
 }
 
 private fun hashCodeAndEquals() {
@@ -50,6 +51,16 @@ private fun segundaFuncao(executar: (List<String>) -> Unit) {
 private fun terceiraFuncao(quandoInicia: () -> Any, quandoFinaliza: (any: Any?) -> Unit) {
     quandoInicia()
     quandoFinaliza(quandoInicia())
+}
+
+private fun quartaFuncao() {
+    val test: Test? = null
+
+        test?.run {
+            println(this.name)
+        } ?: mutableListOf<Test>().also {
+            println(it.size)
+        }
 }
 
 
